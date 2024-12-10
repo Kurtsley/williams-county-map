@@ -1,8 +1,8 @@
-const CACHE_NAME = 'mckenzie2-cache';
+const CACHE_NAME = 'williams-cache';
 const URLS_TO_CACHE = [
   '/',
   '/index.html',
-  '/data/addresses.geojson',
+  '/data/williamsfull.geojson',
   '/static/manifest.json',
   '/static/map.png',
   '/css/style.css',
@@ -17,7 +17,7 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  if (event.request.url.includes('/data/addresses.geojson')) {
+  if (event.request.url.includes('/data/williamsfull.geojson')) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
         if (cachedResponse) {
