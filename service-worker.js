@@ -4,7 +4,7 @@ const URLS_TO_CACHE = [
   '/index.html',
   '/data/williamsfull.geojson',
   '/static/manifest.json',
-  '/static/map.png',
+  '/static/mapwil.png',
   '/css/style.css',
 ];
 
