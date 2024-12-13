@@ -32,7 +32,7 @@
             const map = new mapboxgl.Map({
                 accessToken: accessToken,
                 container: 'map',
-                style: 'mapbox://styles/mapbox/satellite-streets-v12',
+                style: 'mapbox://styles/kurtsley/cm4m3fm08004001s854hee83t',
                 center: [-103.50688459950364, 48.36244079771603],  // Coordinates for the center
                 zoom: 10,
                 customAttribution: "Developed by Kurtsley",
@@ -53,7 +53,7 @@
             });
 
             let geojsonData = null;
-            fetch('data/williamsfull.geojson')
+            fetch('data/addresses.geojson')
                 .then(response => response.json())
                 .then(data => {
                     geojsonData = data;
@@ -95,7 +95,7 @@
 
                 map.addSource('points', {
                     type: 'geojson',
-                    data: 'data/williamsfull.geojson',
+                    data: 'data/adresses.geojson',
                     cluster: true,
                     clusterMaxZoom: 14,
                     clusterRadius: 50,

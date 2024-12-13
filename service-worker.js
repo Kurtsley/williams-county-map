@@ -2,7 +2,7 @@ const CACHE_NAME = 'williams-cache';
 const URLS_TO_CACHE = [
   '/',
   '/index.html',
-  '/data/williamsfull.geojson',
+  '/data/addresses.geojson',
   '/static/manifest.json',
   '/static/mapwil.png',
   '/css/style.css',
@@ -17,7 +17,7 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  if (event.request.url.includes('/data/williamsfull.geojson')) {
+  if (event.request.url.includes('/data/addresses.geojson')) {
     event.respondWith(
       caches.match(event.request).then((cachedResponse) => {
         if (cachedResponse) {
