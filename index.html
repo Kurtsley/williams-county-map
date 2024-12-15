@@ -92,6 +92,10 @@
                 // Zoom control
                 map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
+                // Restrict zoom
+                map.setMinZoom(8);
+                map.setMaxZoom(17);
+
                 map.addSource('points', {
                     type: 'geojson',
                     data: 'data/addresses.geojson',
@@ -196,7 +200,6 @@
 
                 map.on('zoom', function () {
                     const zoomLevel = map.getZoom();
-
                     if (zoomLevel >= 14) {
                         map.setLayoutProperty('labels', 'visibility', 'visible');
                     } else {
