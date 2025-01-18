@@ -160,6 +160,17 @@
                 });
 
                 map.addLayer({
+                    id: 'clickArea',
+                    type: 'circle',
+                    source: 'points',
+                    filter: ['!', ['has', 'point_count']], // Only non-clusters
+                    paint: {
+                        'circle-radius': 15,
+                        'circle-color': 'rgba(0, 0, 0, 0)',
+                    },
+                });
+
+                map.addLayer({
                     id: 'labels',
                     type: 'symbol',
                     source: 'points',
@@ -207,15 +218,15 @@
                     }
                 });
 
-                map.on('mouseenter', 'unclustered-point', () => {
+                map.on('mouseenter', 'clickArea', () => {
                     map.getCanvas().style.cursor = 'pointer';
                 });
 
-                map.on('mouseleave', 'unclustered-point', () => {
+                map.on('mouseleave', 'clickArea', () => {
                     map.getCanvas().style.cursor = '';
                 });
 
-                map.on('click', 'unclustered-point', (e) => {
+                map.on('click', 'clickArea', (e) => {
                     const feature = e.features[0];
                     window.open(navigateURL(feature), '_blank');
                 });
